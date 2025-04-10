@@ -11,12 +11,12 @@ const API_URL = process.env.API_URL || "https://nscc-w0443022-api-inft4000-700-e
 
   // Concert details
   const concertDetails = {
-    id: 1,
+    id: 6,
     title: "Kendrick Lamar & SZA - Grand National Tour",
     date: "June 15, 2025",
     venue: "Rogers Centre, Toronto",
-    quantity: 10,
-    price: 300.99,
+    quantity: 2,
+    price: 129.99,
     fees: 25.50
   };
 
