@@ -6,10 +6,8 @@ import grandnational from '/img/grandnational.jpg';
 
 function App() {
 
-
-// API endpoint
-  const API_URL = 'https://nscc-w0443022-api-inft4000-700-ejbkhbf9hwhgf6g6.canadacentral-01.azurewebsites.net/api/tickets';
-
+//endpoint!
+const API_URL = process.env.API_URL || "https://nscc-w0443022-api-inft4000-700-ejbkhbf9hwhgf6g6.canadacentral-01.azurewebsites.net/api/tickets"
 
   // Concert details
   const concertDetails = {
