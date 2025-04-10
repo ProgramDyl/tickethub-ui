@@ -6,13 +6,9 @@ import grandnational from '/img/grandnational.jpg';
 
 function App() {
 
-  //TESTING WITH CORS PROXY (this method provided by GenAI for debugging)
-  const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-  const API_URL = `${CORS_PROXY}https://nscc-w0443022-api-inft4000-700-ejbkhbf9hwhgf6g6.canadacentral-01.azurewebsites.net/api/tickets`;
-  
 
 // API endpoint
-  // const API_URL = 'https://nscc-w0443022-api-inft4000-700-ejbkhbf9hwhgf6g6.canadacentral-01.azurewebsites.net/api/tickets';
+  const API_URL = 'https://nscc-w0443022-api-inft4000-700-ejbkhbf9hwhgf6g6.canadacentral-01.azurewebsites.net/api/tickets';
 
 
   // Concert details
