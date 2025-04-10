@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import ReactModal from 'react-modal';
 import grandnational from '/img/grandnational.jpg';
 
 
@@ -9,7 +10,10 @@ function App() {
 //endpoint!
 const API_URL = process.env.API_URL || "https://nscc-w0443022-api-inft4000-700-ejbkhbf9hwhgf6g6.canadacentral-01.azurewebsites.net/api/tickets"
 
-  // Concert details
+
+  // ======================= 
+  //        DETAILS 
+  // ======================= 
   const concertDetails = {
     id: 6,
     title: "Kendrick Lamar & SZA - Grand National Tour",
@@ -20,7 +24,11 @@ const API_URL = process.env.API_URL || "https://nscc-w0443022-api-inft4000-700-e
     fees: 25.50
   };
 
-  // all data in form (with appropriate hardcoded values)
+  
+  // =======================  
+  //        FORM DATA
+  // =======================  
+
   const [formData, setFormData] = useState({
     ConcertId: concertDetails.id,
     Name: '',
@@ -37,6 +45,31 @@ const API_URL = process.env.API_URL || "https://nscc-w0443022-api-inft4000-700-e
     Quantity: concertDetails.quantity
   });
 
+  // Calculate totals
+  const subtotal = concertDetails.price * concertDetails.quantity;
+  const total = subtotal + concertDetails.fees;
+
+  // Canadian provinces for dropdown
+  const canadianProvinces = [
+    { code: 'AB', name: 'Alberta' },
+    { code: 'BC', name: 'British Columbia' },
+    { code: 'MB', name: 'Manitoba' },
+    { code: 'NB', name: 'New Brunswick' },
+    { code: 'NL', name: 'Newfoundland and Labrador' },
+    { code: 'NS', name: 'Nova Scotia' },
+    { code: 'ON', name: 'Ontario' },
+    { code: 'PE', name: 'Prince Edward Island' },
+    { code: 'QC', name: 'Quebec' },
+    { code: 'SK', name: 'Saskatchewan' },
+    { code: 'NT', name: 'Northwest Territories' },
+    { code: 'NU', name: 'Nunavut' },
+    { code: 'YT', name: 'Yukon' }
+  ];
+
+
+  // =======================
+  //     FORM SUBMISSION
+  // =======================  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -113,26 +146,11 @@ const API_URL = process.env.API_URL || "https://nscc-w0443022-api-inft4000-700-e
   }
 };
 
-  // Calculate totals
-  const subtotal = concertDetails.price * concertDetails.quantity;
-  const total = subtotal + concertDetails.fees;
 
-  // Canadian provinces for dropdown
-  const canadianProvinces = [
-    { code: 'AB', name: 'Alberta' },
-    { code: 'BC', name: 'British Columbia' },
-    { code: 'MB', name: 'Manitoba' },
-    { code: 'NB', name: 'New Brunswick' },
-    { code: 'NL', name: 'Newfoundland and Labrador' },
-    { code: 'NS', name: 'Nova Scotia' },
-    { code: 'ON', name: 'Ontario' },
-    { code: 'PE', name: 'Prince Edward Island' },
-    { code: 'QC', name: 'Quebec' },
-    { code: 'SK', name: 'Saskatchewan' },
-    { code: 'NT', name: 'Northwest Territories' },
-    { code: 'NU', name: 'Nunavut' },
-    { code: 'YT', name: 'Yukon' }
-  ];
+
+  // =======================  
+  //          UI
+  // =======================  
 
   return (
     <div className="container-fluid p-0" style={{ maxWidth: '1300px', margin: '0 auto' }}>
